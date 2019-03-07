@@ -26,10 +26,10 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">Start Bootstrap </div>
       <div class="list-group list-group-flush">
-        <a href="/filmai/?page=all-films" class="list-group-item list-group-item-action bg-light">Visi Filmai</a>
-        <a href="/filmai/?page=filter-films" class="list-group-item list-group-item-action bg-light">Filmai pagal Žanra</a>
-        <a href="/filmai/?page=search-films" class="list-group-item list-group-item-action bg-light">Filmo paieška</a>
-        <a href="/filmai/?page=stats" class="list-group-item list-group-item-action bg-light">statistika</a>
+        <a href="?page=all-films" class="list-group-item list-group-item-action bg-light">Visi Filmai</a>
+        <a href="?page=filter-films" class="list-group-item list-group-item-action bg-light">Filmai pagal Žanra</a>
+        <a href="?page=search-films" class="list-group-item list-group-item-action bg-light">Filmo paieška</a>
+        <a href="?page=stats" class="list-group-item list-group-item-action bg-light">statistika</a>
     
       </div>
     </div>
@@ -45,29 +45,8 @@
       
         <?php
    
-      include "inc/functions.php";
-  if(isset($_GET['page']))
-  {
 
- switch ($_GET['page']) {
-    case "all-films":
-        include "pages/all_films.page.php";
-        break;
-    case "filter-films":
-    include "pages/filer_films.page.php";
-        break;
-    case "search-films":
-    include "pages/search.page.php";
-        break;
-        case "stats":
-        include "pages/stats.page.php";
-        break;
-  
-  }
-}
-  else{
-    include "pages/home.page.php";
-  }
+  include "inc/routs.php";
 
         
 

@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Pagrindinis <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="?page">Pagrindinis <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Visi filmai</a>
@@ -18,7 +18,7 @@
                 Veiksmai
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Pridėti nauja filmą</a>
+                <a class="dropdown-item" href="?page=add-movie">Pridėti nauja filmą</a>
                 <a class="dropdown-item" href="#">Tvarkyti žanrus</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Tvarkyti filmus</a>
