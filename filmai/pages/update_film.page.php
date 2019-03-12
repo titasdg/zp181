@@ -17,7 +17,7 @@ if(isset($_POST['updatefilm']))
         <input type="text" name="about" placeholder="<?=$data['aprasymas']?>" value="<?=$data['aprasymas']?>">
     </fieldset>
     <fieldset >
-        <input type="text" name="date" placeholder="<?=$data['premiera']?>" value="<?=$data['premiera']?>">
+        <input type="text" name="date" placeholder="<?=$data['premjeros_data']?>" value="<?=$data['premjeros_data']?>">
     </fieldset>
     <fieldset >
         <select type="text" name="id">

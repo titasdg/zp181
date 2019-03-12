@@ -6,6 +6,7 @@ $links =[
 "search-films"=>"search",
 "stats"=>"stats",
 "add-movie"=>"add_movie",
+"search-films"=>"search",
 ""=>"home"
 ];
  $actions =[
