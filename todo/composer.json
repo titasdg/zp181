@@ -1,0 +1,9 @@
+{
+    "autoload": {
+        "name": "todo",
+        "description": "description",
+        "psr-4": {
+            "Tasker\\": "src"
+        }
+    }
+}
