@@ -1,0 +1,47 @@
+        <div class="main_Div">
+        
+
+        <?php if(isset($_POST['submit'])):?>
+
+    <?php echo json_encode($_POST) ;?>
+<?php endif ;?>
+</div>
+
+
+
+        
+        <div class="flight_number">
+        <h1>Flight number  :  <?=$_POST['number']?></h1>
+        </div>
+        <div class="flight_info">
+            <div class="date">
+            <h1><?=date('Y\-m\-d')?></h1>
+            </div>
+            <div class="name">
+            <p>First Name :  </p>
+            <h1><?=htmlspecialchars($_POST['name'])?></h1>
+            <p>Last Name:  </p>
+            <h1><?=htmlspecialchars($_POST['lname'])?></h1>
+            </div>
+            <div class="flight">
+            <p>Flying from </p>
+           
+            <p>Flying to </p>  
+            <h1 class="to"><?=$_POST['from']?></h1>
+            <h1 class="from"><?=$_POST['to']?></h1>
+            </div>
+        </div>
+        <div class="flight_price">
+            <?php if(htmlspecialchars($_POST['baggage'])>=20):?>
+            <h1>Disclamer! 20kg or more cost extra 30e . peace!</h1>
+                <p>Flight price  :  <?=htmlspecialchars($_POST['price'])?> e</p>
+                <p>Baggage price  :  +30e</p>
+                <?php htmlspecialchars($total=$_POST['price'])+30?>
+                <h2>TOTAL : <?=$total?> e </h2>
+                <?php else :?>
+                <p>Flight price  :  <?=htmlspecialchars($_POST['price'])?> e</p>
+                <h2>TOTAL : <?=htmlspecialchars($_POST['price'])?> e </h2>
+            <?php endif ;?>
+        
+        </div>
+

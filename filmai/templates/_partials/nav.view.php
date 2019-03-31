@@ -1,3 +1,9 @@
+<?php
+   if(!isset($_SESSION)) 
+   { 
+       session_start(); 
+   } 
+ ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
         <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
 
@@ -10,6 +16,7 @@
             <li class="nav-item active">
               <a class="nav-link" href="?page">Pagrindinis <span class="sr-only">(current)</span></a>
             </li>
+            
             <li class="nav-item">
               <a class="nav-link" href="#">Visi filmai</a>
             </li>
@@ -17,12 +24,14 @@
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Veiksmai
               </a>
+              <?php if($_SESSION['username']=="admin") :?>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="?page=add-movie">Pridėti nauja filmą</a>
-                <a class="dropdown-item" href="#">Tvarkyti žanrus</a>
+                
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Tvarkyti filmus</a>
+                <a class="dropdown-item" href="?page=all-films">Tvarkyti filmus</a>
               </div>
+              <?php endif ;?>
             </li>
           </ul>
         </div>

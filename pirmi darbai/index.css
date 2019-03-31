@@ -1,0 +1,21 @@
+body{
+    width:70%;
+    margin: 0 auto;
+}
+table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 20px;
+}
+th{
+    background-color: #3F86F1;
+}
+tr:nth-child(odd){
+    background-color:#BABAFC; 
+}
+th,td{
+    border: 1px solid black;
+    padding: 5px 20px;
+    font-weight: 30px;
+}

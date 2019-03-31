@@ -26,6 +26,7 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">Start Bootstrap </div>
       <div class="list-group list-group-flush">
+      <a href="?page=login" class="list-group-item list-group-item-action bg-light">Login</a>
         <a href="?page=all-films" class="list-group-item list-group-item-action bg-light">Visi Filmai</a>
         <a href="?page=filter-films" class="list-group-item list-group-item-action bg-light">Filmai pagal Žanra</a>
         <a href="?page=search-films" class="list-group-item list-group-item-action bg-light">Filmo paieška</a>

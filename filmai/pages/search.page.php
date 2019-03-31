@@ -3,7 +3,13 @@
  if(isset($_POST['searchFilm'])) 
  {
 $results = search ($_POST['search'],$dsn, $user ,$passwd,$options);
- if($results!=null)
+ 
+ if(empty($_POST['search'])){
+  $table ="Paieskoje kazka yrasykite";
+
+ }
+
+else if($results!=null)
  {
    $table.='<table class="table table-responsive table-bordered">';
 foreach ($results as $data) 
@@ -20,16 +26,11 @@ foreach ($results as $data)
    $table.= '</table> ';  
    
  }
+ 
  else {
 $table ="Filmu tokiu pavadinimu nerasta";
 
  }
-
-    
- 
-
-
-
  }
  
 ?>

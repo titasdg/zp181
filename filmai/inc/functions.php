@@ -56,7 +56,7 @@
    function showOne($id,$dsn, $user ,$passwd,$options){
     $pdo = connetchToDb($dsn, $user ,$passwd,$options);
     try {
-        $stm = $pdo->prepare("SELECT zanro_id,filmai.id,pavadinimas,aprasymas,premiera,zanrai.zanras from filmai inner join zanrai on filmai.zanro_id=zanrai.id WHERE filmai.id = :id;");
+        $stm = $pdo->prepare("SELECT zanro_id,filmai.id,pavadinimas,aprasymas,premjeros_data,zanrai.zanras from filmai inner join zanrai on filmai.zanro_id=zanrai.id WHERE filmai.id = :id;");
         $stm->bindParam(':id', $id, PDO::PARAM_STR);
     }
     catch (Exeption $e){
@@ -76,7 +76,7 @@
    function addFilm ($pavadinimas,$aprasymas,$premiera,$zanras,$dsn, $user ,$passwd,$options)
    {
     $pdo = connetchToDb($dsn, $user ,$passwd,$options);
-    $sql = "INSERT INTO filmai (pavadinimas,aprasymas,premiera,zanro_id) VALUES (:pavadinimas,:aprasymas,:premiera,:zanras)";
+    $sql = "INSERT INTO filmai (pavadinimas,aprasymas,premjeros_data,zanro_id) VALUES (:pavadinimas,:aprasymas,:premiera,:zanras)";
     $stmt= $pdo->prepare($sql);
     $stmt->bindParam(':pavadinimas', $pavadinimas, PDO::PARAM_STR);
     $stmt->bindParam(':aprasymas', $aprasymas, PDO::PARAM_STR);
@@ -104,7 +104,7 @@
     $pdo = connetchToDb($dsn, $user ,$passwd,$options);
     $sql = "UPDATE filmai SET pavadinimas = :pavadinimas, 
     aprasymas =:aprasymas,
-    premiera = :premiera,
+    premjeros_data = :premiera,
     zanro_id = :zanras
     WHERE filmai.id = :id";
 $stmt = $pdo->prepare($sql);                                  
@@ -167,7 +167,7 @@ echo $table;
 /*----------------------------------------------------------------*/
 function displayByGenre($id,$dsn, $user ,$passwd,$options){
   $pdo = connetchToDb($dsn, $user ,$passwd,$options);
-      $stm = $pdo->prepare("SELECT zanro_id,filmai.id,pavadinimas,aprasymas,premiera,zanrai.zanras from filmai inner join zanrai on filmai.zanro_id=zanrai.id WHERE zanrai.id = :id;");
+      $stm = $pdo->prepare("SELECT zanro_id,filmai.id,pavadinimas,aprasymas,premjeros_data,zanrai.zanras from filmai inner join zanrai on filmai.zanro_id=zanrai.id WHERE zanrai.id = :id;");
       $stm->bindParam(':id', $id, PDO::PARAM_STR);
  
   $stm ->execute();
@@ -177,10 +177,46 @@ function displayByGenre($id,$dsn, $user ,$passwd,$options){
 
 }
 /*----------------------------------------------------------------*/
+function htmlspecial_array(&$variable) {
+  foreach ($variable as &$value) {
+      if (!is_array($value)) { $value = htmlspecialchars($value); }
+      else { htmlspecial_array($value); }
+  }
+}
+
+
+
+/*-----------------------------------------------------------------*/
+function register ($username,$password,$dsn, $user ,$passwd,$options)
+{
+ $pdo = connetchToDb($dsn, $user ,$passwd,$options);
+ $sql = "INSERT INTO users (username,password) VALUES (:username,:password)";
+ $stmt= $pdo->prepare($sql);
+ $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+ $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+
+ $stmt->execute();
+}
 
 
 
 
 
 /*-----------------------------------------------------------------*/
+function loginFunction($username,$dsn, $user ,$passwd,$options){
+  $pdo = connetchToDb($dsn, $user ,$passwd,$options);
+  try {
+      $stm = $pdo->prepare("SELECT username,password from users WHERE username = :loginName;");
+      $stm->bindParam(':loginName', $username, PDO::PARAM_STR);
+  }
+  catch (Exeption $e){
+    echo "Klaida : negaliu gauti duomenu is DB";
+    exit;
+  }
+  $stm ->execute();
+ $results = $stm->fetchall();
+ $pdo = null;
+ return $results;
+ }
+/*-----------------------------------------*/
 ?>

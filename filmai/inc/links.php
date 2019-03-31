@@ -7,7 +7,11 @@ $links =[
 "stats"=>"stats",
 "add-movie"=>"add_movie",
 "search-films"=>"search",
-""=>"home"
+"login"=>"login",
+"register"=>"register",
+"more"=>"more_info",
+"send"=>"send_link",
+"home"=>"home"
 ];
  $actions =[
     "delete"=>"delete_film",
